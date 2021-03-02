@@ -13,7 +13,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.GET_CHAIN_STATS:
-      return { ...state, chain: [...state.chain, action.payload] };
+      return { ...state, chain: [action.payload, ...state.chain] };
     case types.STATE_MINER_POWER:
       return {
         ...state,
