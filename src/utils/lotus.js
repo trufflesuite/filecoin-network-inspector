@@ -1,6 +1,6 @@
 import { LotusRPC } from "@filecoin-shipyard/lotus-client-rpc";
 import { BrowserProvider } from "@filecoin-shipyard/lotus-client-provider-browser";
-import { testnet } from "@filecoin-shipyard/lotus-client-schema";
+import { mainnet } from "@filecoin-shipyard/lotus-client-schema";
 
 export const getClient = (options = { nodeOrMiner: "node", nodeNumber: 0 }) => {
   // API endpoint for local Lotus devnet
@@ -13,6 +13,6 @@ export const getClient = (options = { nodeOrMiner: "node", nodeNumber: 0 }) => {
   const provider = new BrowserProvider(wsUrl);
   return new LotusRPC(provider, {
     schema:
-      options.nodeOrMiner === "node" ? testnet.fullNode : testnet.storageMiner,
+      options.nodeOrMiner === "node" ? mainnet.fullNode : mainnet.storageMiner,
   });
 };
